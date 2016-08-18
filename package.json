@@ -2,9 +2,12 @@
   "name": "template",
   "version": "0.1.0",
   "scripts": {
-    "dev": "./node_modules/.bin/webpack-dev-server -d --hot --inline"
+    "bundle-dev": "./node_modules/.bin/webpack-dev-server -d --hot --inline",
+    "bundle": "./node_modules/.bin/webpack"
   },
   "dependencies": {
+    "@types/react": "^0.14.30",
+    "@types/react-dom": "^0.14.14",
     "react": "^15.3.0",
     "react-dom": "^15.3.0"
   },
