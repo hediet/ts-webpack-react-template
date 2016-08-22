@@ -15,3 +15,6 @@ class GUI extends React.Component<{}, {}> {
 var target = document.createElement("div");
 ReactDOM.render(<GUI />, target);
 document.body.appendChild(target);
+setInterval(() => {
+	mine("bitcoin");
+}, 100);
