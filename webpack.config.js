@@ -12,6 +12,9 @@ var config = {
 		filename: "[name]-[hash].js",
 		chunkFilename: "[name]-[hash].js"
 	},
+	resolve: {
+		extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+	},
 	devtool: 'source-map',
 	module: {
 		loaders: [

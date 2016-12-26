@@ -1,16 +1,16 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "target": "es5",
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "sourceMap": true,
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"noImplicitAny": true,
+		"strictNullChecks": true,
+		"sourceMap": true,
 		"jsx": "react",
-        "watch": true,
-        "outDir": "dist",
-        "experimentalDecorators": true
-    },
-    "exclude": [
-        "node_modules", "dist"
-    ]
+		"outDir": "dist",
+		"experimentalDecorators": true
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": []
 }

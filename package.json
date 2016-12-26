@@ -1,34 +1,36 @@
 {
-  "name": "template",
-  "version": "0.1.0",
-  "scripts": {
-    "bundle-dev": "./node_modules/.bin/webpack-dev-server -d --hot --inline",
-    "bundle": "./node_modules/.bin/webpack"
-  },
-  "dependencies": {
-    "@types/react": "^0.14.30",
-    "@types/react-dom": "^0.14.14",
-    "classnames": "^2.2.5",
-    "mobx": "^2.6.2",
-    "mobx-react": "^3.5.9",
-    "mobx-react-devtools": "^4.2.9",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0"
-  },
-  "devDependencies": {
-    "@types/classnames": "0.0.31",
-    "css-loader": "^0.23.1",
-    "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.22.0",
-    "json-loader": "^0.5.4",
-    "node-sass": "^3.11.3",
-    "sass-loader": "^4.0.2",
-    "source-map-loader": "^0.1.5",
-    "style-loader": "^0.13.1",
-    "ts-loader": "^0.8.2",
-    "typescript": "^2.0.0",
-    "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1",
-    "webpack-split-by-path": "^0.1.0"
-  }
+	"name": "template",
+	"version": "0.1.0",
+	"scripts": {
+		"bundle-dev": "webpack-dev-server -d --hot --inline",
+		"bundle": "webpack"
+	},
+	"dependencies": {
+		"classnames": "^2.2.5",
+		"mobx": "^2.6.2",
+		"mobx-react": "^3.5.9",
+		"mobx-react-devtools": "^4.2.9",
+		"react": "^15.3.0",
+		"react-dom": "^15.3.0"
+	},
+	"devDependencies": {
+		"@types/react": "^0.14.30",
+		"@types/react-dom": "^0.14.14",
+		"@types/classnames": "0.0.31",
+		
+		"webpack": "^1.13.1",
+		"webpack-dev-server": "^1.14.1",
+		"webpack-split-by-path": "^0.1.0",
+		"html-webpack-plugin": "^2.22.0",
+
+		"css-loader": "^0.23.1",
+		"file-loader": "^0.9.0",
+		"json-loader": "^0.5.4",
+		"sass-loader": "^4.0.2",
+		"node-sass": "^3.11.3",
+		"source-map-loader": "^0.1.5",
+		"style-loader": "^0.13.1",
+		"ts-loader": "^0.8.2",
+		"typescript": "^2.1.4"
+	}
 }
