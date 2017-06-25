@@ -5,30 +5,26 @@ var SplitByPathPlugin = require('webpack-split-by-path');
 
 var r = file => path.resolve(__dirname, file[0]);
 
-var config = {
-	entry: r`src/index.tsx`,
+module.exports = {
+	entry: [ r`src/index.tsx` ],
 	output: {
 		path: r`dist`,
 		filename: "[name]-[hash].js",
 		chunkFilename: "[name]-[hash].js"
 	},
 	resolve: {
-		extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js']
+		extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js']
 	},
 	devtool: 'source-map',
 	module: {
-		loaders: [
+		rules: [
 			{ test: /\.css$/, loader: "style-loader!css-loader" },
-			{ test: /\.scss$/, loader: "style!css!sass" },
-			{ test: /\.(jpe?g|png|gif)$/i, loader: "file" },
-			{ test: /\.tsx?$/, loader: 'ts-loader' }
-		],
-		preLoaders: [
-			/*
-			 * bundled js ---[sourcemap 1]--> js ---[sourcemap 2]--> ts
-			 * The source-map-loader combines both sourcemaps.
-			 */
-			{ test: /\.js$/, loader: "source-map-loader" }
+			{ test: /\.scss$/, loader: "style-loader!css-loader!sass-loader" },
+			{ test: /\.(jpe?g|png|gif)$/i, loader: "file-loader" },
+			{ 
+				test: /\.tsx?$/, loader: 'ts-loader',
+				options: { transpileOnly: true }
+			}
 		]
 	},
 	plugins: [
@@ -40,5 +36,3 @@ var config = {
 		new HtmlWebpackPlugin()
 	]
 };
-
-module.exports = config;

@@ -1,38 +1,22 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import * as classNames from "classnames";
-import { observable, computed } from "mobx";
-import { observer } from "mobx-react";
-import DevTools from 'mobx-react-devtools'; 
 import "./style.scss";
+import Components = require("./Components");
+import { Model } from "./Model";
 
-class Model {
-	constructor() {
-		this.time = new Date();
-		setInterval(() => this.time = new Date(), 1000);
-	}
+const model = new Model();
 
-	@observable time: Date;
-	@computed get seconds(): number {
-		return this.time.getSeconds();
-	}
+function render(target: HTMLDivElement, components: typeof Components) {
+	ReactDOM.render(<components.GUI model={model} />, target);
 }
 
-var model = new Model();
-
-@observer
-class GUI extends React.Component<{}, {}> {
-	render() {
-		return (
-			<div>
-				<DevTools />
-				{model.time.toDateString()},
-				second: {model.seconds}
-			</div>
-		);
-	}
-}
-
-var target = document.createElement("div");
-ReactDOM.render(<GUI />, target);
+const target = document.createElement("div");
+render(target, Components);
 document.body.appendChild(target);
+
+declare var module: { hot?: { accept: (componentName: string, callback: () => void) => void } };
+declare var require: (name: string) => any;
+
+if (module.hot) {
+	module.hot.accept("./Components", () => render(target, require("./Components")));
+}
