@@ -1,22 +1,28 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./style.scss";
-import Components = require("./Components");
 import { Model } from "./Model";
+import Components = require("./Components");
 
 const model = new Model();
 
-function render(target: HTMLDivElement, components: typeof Components) {
-	ReactDOM.render(<components.GUI model={model} />, target);
+function render(target: HTMLDivElement) {
+    const c = require("./Components") as typeof Components;
+    ReactDOM.render(<c.GUI model={model} />, target);
 }
 
 const target = document.createElement("div");
-render(target, Components);
+target.className = "target";
 document.body.appendChild(target);
+render(target);
 
-declare var module: { hot?: { accept: (componentName: string, callback: () => void) => void } };
+declare var module: {
+    hot?: { accept: (componentName: string, callback: () => void) => void };
+};
 declare var require: (name: string) => any;
 
 if (module.hot) {
-	module.hot.accept("./Components", () => render(target, require("./Components")));
+    module.hot.accept("./Components", () => {
+        render(target);
+    });
 }
