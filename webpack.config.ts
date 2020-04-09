@@ -30,5 +30,18 @@ module.exports = {
 			},
 		],
 	},
-	plugins: [new HtmlWebpackPlugin()],
+	plugins: [
+		new HtmlWebpackPlugin({
+			templateContent: `
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<title>${require("./package.json").name}</title>
+	</head>
+	<body>
+	</body>
+</html>`,
+		}),
+	],
 } as webpack.Configuration;
