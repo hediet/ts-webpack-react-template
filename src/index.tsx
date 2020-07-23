@@ -3,4 +3,6 @@ import * as ReactDOM from "react-dom";
 import "./style.scss";
 import { App } from "./components/App";
 
-ReactDOM.render(<App />, document.body);
+const elem = document.createElement("div");
+document.body.append(elem);
+ReactDOM.render(<App />, elem);
